@@ -14,4 +14,5 @@ def addOrder(order):
     orders.append(order)
 
 def disposeOrders():
-    pass
+    global orders
+    orders = []

@@ -12,7 +12,7 @@ def readOrders():
 @app.delete('/delete')
 def delete():
     service_disposeOrderss()
-    return jsonify([])
+    return jsonify(service_getOrders())
 
 @app.put('/orders/add')
 def addOrder():

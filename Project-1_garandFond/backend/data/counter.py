@@ -1,12 +1,19 @@
+global counter 
+
+
+
+counter = 10
 
 
 def getCounter():
     return counter
 
 def increaseCounter():
+    global counter
+
     counter += 1
 
 def decreaseCounter():
-    counter -= 1
-
-counter = 10
+    global counter
+    if counter > 0:
+        counter -= 1
