@@ -1,0 +1,74 @@
+{
+	"info": {
+		"_postman_id": "da199e7c-0292-4d14-842e-1a990851871a",
+		"name": "Studio",
+		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json",
+		"_exporter_id": "28086873",
+		"_collection_link": "https://restless-eclipse-605319.postman.co/workspace/Chat_gpt~b04af9d0-ded3-4e22-bd85-7c2046bd0757/collection/28086873-da199e7c-0292-4d14-842e-1a990851871a?action=share&source=collection_link&creator=28086873"
+	},
+	"item": [
+		{
+			"name": "GarandFond",
+			"item": [
+				{
+					"name": "Order",
+					"item": [
+						{
+							"name": "getCounter",
+							"request": {
+								"method": "GET",
+								"header": []
+							},
+							"response": []
+						},
+						{
+							"name": "increaseCounter",
+							"request": {
+								"method": "GET",
+								"header": []
+							},
+							"response": []
+						},
+						{
+							"name": "decreaseCounter",
+							"request": {
+								"method": "GET",
+								"header": []
+							},
+							"response": []
+						}
+					]
+				},
+				{
+					"name": "Counter",
+					"item": [
+						{
+							"name": "getOrders",
+							"request": {
+								"method": "GET",
+								"header": []
+							},
+							"response": []
+						},
+						{
+							"name": "delete",
+							"request": {
+								"method": "GET",
+								"header": []
+							},
+							"response": []
+						},
+						{
+							"name": "addOrder",
+							"request": {
+								"method": "GET",
+								"header": []
+							},
+							"response": []
+						}
+					]
+				}
+			]
+		}
+	]
+}
