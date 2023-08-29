@@ -1,24 +1,27 @@
-from data.counter import *
-from data.order import *
+from models.counter import *
+from models.order import *
 
 #orders
-def service_getOrders():
-    return getOrders()
 
-def service_addOrder(order):
-    return addOrder(order)
+class Service:
 
-def service_disposeOrderss():
-    return disposeOrders()
+    def getOrders():
+        return getOrders()
 
-#counter
-def service_getCounter():
-    return getCounter()
+    def addOrder(contact,comment):
+        return addOrder(contact=contact,comment=comment)
+        
+    def disposeOrderss():
+        return disposeOrders()
 
-def service_increaseCounter():
-    return increaseCounter()
+    #counter
+    def getCounter():
+        return getCounter()
 
-def service_decreaseCounter():
-    return decreaseCounter()
+    def increaseCounter():
+        return increaseCounter()
+
+    def decreaseCounter():
+        return decreaseCounter()
 
 
