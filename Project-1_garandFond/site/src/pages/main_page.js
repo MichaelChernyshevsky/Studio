@@ -1,11 +1,10 @@
-import NavigationBar from "../components/navBar/navBar";
 
-
+import NavigationBar from '../components/navBar/navBar'
 
 function MainPage() {
   return (
     <div className="scaffold">
-        <NavigationBar/>
+      <NavigationBar/>
     </div>
   );
 }

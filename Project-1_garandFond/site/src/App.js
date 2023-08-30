@@ -1,10 +1,10 @@
-import NavigationBar from "./components/navBar/navBar";
 import MainPage from "./pages/main_page";
-
-
+import "./style.css"
 
 function App() {
-  return ( <MainPage/>);
+  return ( 
+       <MainPage />
+ );
 }
 
 export default App;

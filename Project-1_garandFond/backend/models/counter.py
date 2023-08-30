@@ -1,17 +1,29 @@
-from server import Counter,db
+from app import db
 
 
-def getCounter():
-    return Counter.query.filter_by(id=1).first().__dict__['count']
+class Counter(db.Model):
+    __tablename__ = "counter"
+    __table_args__ = {"extend_existing": True}
 
-def increaseCounter():
-    counter = Counter.query.filter_by(id = 1).first()
-    counter.count += 10
-    db.session.commit()
+    id = db.Column("id", db.Integer, primary_key=True)
+    count = db.Column("count", db.Integer)
 
-def decreaseCounter():
-    counter = Counter.query.filter_by(id = 1).first()
-    counter.count -= 10
-    db.session.commit()
+    def __init__(self, id, count):
+        self.id = id
+        self.count = count
 
-getCounter()
+    @staticmethod
+    def getCounter():
+        return Counter.query.filter_by(id=1).first().__dict__["count"]
+
+    @staticmethod
+    def increaseCounter():
+        counter = Counter.query.filter_by(id=1).first()
+        counter.count += 1
+        db.session.commit()
+
+    @staticmethod
+    def decreaseCounter():
+        counter = Counter.query.filter_by(id=1).first()
+        counter.count -= 1
+        db.session.commit()

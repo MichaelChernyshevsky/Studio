@@ -1,0 +1,29 @@
+
+.navigation_bar {
+    width: 1920px;
+    height: 100px;
+    display: flex;
+    background-color: grey;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+}
+
+
+
+.logo {
+    margin: 20px 0px 20px 60px;
+}
+
+.button {
+    padding:  0px 20px 0px 20px;
+
+}
+
+.info {
+    display: flex;
+    align-items: center;
+    gap: 30px;
+
+}
+
