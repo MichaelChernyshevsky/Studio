@@ -1,1 +1,0 @@
-export const NAVBAR_TITLE = 'Оформление банковской гарантии'

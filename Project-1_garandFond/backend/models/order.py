@@ -20,8 +20,8 @@ class Order(db.Model):
 
     @staticmethod
     def getOrders():
-        orders = Order.query.all()
         json_orders = []
+        orders = Order.query.all()
         for order in orders:
             form = {
                 "contact": order.__dict__["contact"],
