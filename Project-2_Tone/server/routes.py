@@ -3,8 +3,9 @@ from flask_sqlalchemy import SQLAlchemy
 
 
 from app import app
-from data.data import Card
-from events.events import Events
+from sql.card.data import Card
+from sql.event.events import Events
+from sql.type_events.types_events import Type
 
 
 
@@ -28,7 +29,7 @@ def addCard():
         mounth = request.json["mounth"],
         year= request.json["year"],
         place = request.json["place"],
-        event = request.json["event"],
+        type_id = request.json["type_id"],
         )
     return jsonify(Card.getCards())
 
@@ -41,8 +42,8 @@ def filterData():
     return jsonify(Card.filterDate())
 
 @app.get('/filter/event')
-def filterEvent():
-    return jsonify(Card.filterEvent(event=request.json["event"]))
+def filterType():
+    return jsonify(Card.filterType(type_id=request.json["type_id"]))
 
 
 
@@ -60,11 +61,27 @@ def deleteEvent():
 @app.put('/addEvent')
 def addEvent():
     Events.addEvent(
-        type = request.json["type"],
+        type_id = request.json["type_id"],
         place = request.json["place"],
         link = request.json["link"],
         )
     return jsonify(Events.getEvents())
+# ---------------------------------------------------
+@app.get('/types')
+def getTypes():
+   return jsonify(Type.getTypes())
+
+@app.delete('/deleteType')
+def deleteTypes():
+   Type.deleteType(id=request.json["id"])
+   return jsonify(Type.getTypes())
+
+@app.put('/addType')
+def addTypes():
+    Type.addType(
+        type = request.json["type"],
+        )
+    return jsonify(Type.getTypes())
 
 if __name__ == "__main__":
     app.run(debug=True,port=5001)

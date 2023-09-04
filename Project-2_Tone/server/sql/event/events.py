@@ -5,13 +5,13 @@ class Events (db.Model):
     __table_args__ = {"extend_existing": True}
 
     id = db.Column("id", db.Integer, primary_key=True)
-    type = db.Column("type", db.String(100))
+    type_id = db.Column("type_id", db.Integer,)
     place = db.Column("place", db.String(100))
     link = db.Column("link", db.String(300))
 
 
-    def __init__(self,type, place,link):
-        self.type = type
+    def __init__(self,type_id, place,link):
+        self.type_id = type_id
         self.place = place
         self.link = link
 
@@ -24,7 +24,7 @@ class Events (db.Model):
 
                 form = {
                     "id" : event.__dict__['id'],
-                    "type" : event.__dict__['type'],
+                    "type_id" : event.__dict__['type_id'],
                     "place" : event.__dict__['place'],
                     "link" : event.__dict__['link'],
                 }
@@ -44,9 +44,9 @@ class Events (db.Model):
         
 
     @staticmethod
-    def addEvent(type, place,link):
+    def addEvent(type_id, place,link):
         card = Events(
-            type=type,
+            type_id=type_id,
             place=place,
             link=link,
             )

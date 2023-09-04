@@ -11,17 +11,17 @@ class Card (db.Model):
     year = db.Column("year", db.Integer)
     day = db.Column("day", db.Integer)
     place = db.Column("place", db.String(100))
-    event = db.Column("event", db.String(100))
+    type_id = db.Column("type_id", db.Integer,)
     data = db.Column( "data", db.DateTime)
 
-    def __init__(self,minutes, hour,day,place,mounth,year,event,date):
+    def __init__(self,minutes, hour,day,place,mounth,year,type_id,date):
         self.minutes = minutes
         self.mounth = mounth
         self.hour = hour
         self.day = day
         self.place = place
         self.year = year
-        self.event = event
+        self.type_id = type_id
         self.date = date
 
     def convertData(minutes, hour,day,mounth,year,):
@@ -39,7 +39,7 @@ class Card (db.Model):
                     "mounth" : card.__dict__["mounth"],
                     "year" : card.__dict__["year"],
                     "place" : card.__dict__["place"],
-                    "event" : card.__dict__["event"],
+                    "type_id" : card.__dict__["type_id"],
                     "data" : card.__dict__['data']
             }
             elements.append(form)
@@ -47,7 +47,7 @@ class Card (db.Model):
         return elements
 
     @staticmethod
-    def addCard(minutes,hour,day,place,event,year,mounth):
+    def addCard(minutes,hour,day,place,type_id,year,mounth):
         card = Card(
             mounth=mounth,
             year=year,
@@ -55,7 +55,7 @@ class Card (db.Model):
             hour=hour,
             day=day,
             place=place,
-            event=event,
+            type_id=type_id,
             date=Card.convertData(minutes,hour,day,mounth,year,)
             )
         db.session.add(card)
@@ -77,8 +77,8 @@ class Card (db.Model):
         return Card.toJson(items = cards )
         
     @staticmethod
-    def filterEvent(event):
-        cards = Card.query.filter_by(event=event)
+    def filterType(type_id):
+        cards = Card.query.filter_by(type_id=type_id)
         return Card.toJson(items = cards )
 
     @staticmethod
